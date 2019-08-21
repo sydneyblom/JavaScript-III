@@ -16,13 +16,15 @@
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-function GameObject (createdAt, name, dimensions) {
-  this.createdAt =createdAt
-  this.name = name
-  this.dimensions = dimensions
+
+function GameObject(attributes){
+  this.createdAt = attributes.createdAt;
+  this.dimensions = attributes.dimensions;
 }
 
-GameObject.prototype.destroy =function() {return`${this.name} was removed from`}
+GameObject.prototype.destroy = function(){
+  return `${this.name} was removed from the game.`;
+}
 
 
 /*
@@ -31,6 +33,7 @@ GameObject.prototype.destroy =function() {return`${this.name} was removed from`}
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
+
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -42,6 +45,7 @@ GameObject.prototype.destroy =function() {return`${this.name} was removed from`}
   * should inherit takeDamage() from CharacterStats
 */
  
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -111,7 +115,6 @@ GameObject.prototype.destroy =function() {return`${this.name} was removed from`}
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
