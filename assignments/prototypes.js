@@ -36,7 +36,7 @@ GameObject.prototype.destroy = function(){
 
 function CharacterStats(attributes){
   GameObject.call(this, attributes);
-  this.hp = attributes.hp;
+  this.healthPoints = attributes.healthPoints
   this.name = attributes.name;
 }
 
@@ -56,7 +56,7 @@ CharacterStats.prototype.takeDamage = function (){
  
 function Humanoid(attributes){   
   CharacterStats.call(this, attributes);
-  this.faction = attributes.faction;
+  this.team = attributes.team;
   this.weapons = attributes.weapons;
   this.language = attributes.language;
 }
@@ -123,7 +123,7 @@ Humanoid.prototype.greet = function(){
       'Dagger',
     ],
     language: 'Elvish',
-  });
+  }); 
 
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }

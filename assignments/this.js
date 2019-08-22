@@ -11,11 +11,11 @@
 
 // Principle 1
 // code example for Window Binding
-function pet(species) {
-    console.log(this);
-    return species;
-  }
-  pet('dog');
+// function pet(species) {
+//     console.log(this);
+//     return species;
+//   }
+//   pet('dog');
 
 // Principle 2
 // code example for Implicit Binding
@@ -50,31 +50,35 @@ cat.animal ();
 
 // code example for Explicit Binding
 
-function Person(attributes) {
-    this.age = attributes.age;
-    this.name = attributes.name;
-    this.city = attributes.city;
+
+function Pet(attrs) {
+  this.type = attrs.type;
+  this.name = attrs.name;
+  this.age = attrs.age;
+}
+
+
+
+function Dog(dogAttrs) {
+  Pet.call(this, dogAttrs);
+  this.isCute = dogAttrs.isCute;
+}
+
+Dog.prototype.isCute = function() {
+  if(this.isCute) {
+    return true;
+  } else {
+    return false;
   }
-
-  const fred = new Person({
-    age: 30,
-    name: 'Sydney',
-    city: 'Austin',
-  });
-
-  Person.prototype.speak = function () {
-    return `Hello, my name is ${this.name}`;
-  };
-
-  const doggo = new Child({
-    age: 5,
-    name: 'Sampson',
-    city: 'Austin',
-  });
+};
 
 
-  Child.prototype.checkIfChild = function() {
-    if(this.isChild) {
-      console.log(`My dogs name is ${this.name}`);
-    }
-  };
+
+const newDog = new Dog({
+  isCute: true,
+  type: 'Dog',
+  name: 'Sampson',
+  age: 5,
+});
+
+newDog.checkIfisCute(); 
