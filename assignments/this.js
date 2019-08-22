@@ -50,23 +50,31 @@ cat.animal ();
 
 // code example for Explicit Binding
 
-// function cars(attributes) {
-//     this.newMake = attributes.make,
-//     this.newModel = attributes.Model, 
-//     this.newYear = attributes.year,
-// }
+function Person(attributes) {
+    this.age = attributes.age;
+    this.name = attributes.name;
+    this.city = attributes.city;
+  }
+
+  const fred = new Person({
+    age: 30,
+    name: 'Sydney',
+    city: 'Austin',
+  });
+
+  Person.prototype.speak = function () {
+    return `Hello, my name is ${this.name}`;
+  };
+
+  const doggo = new Child({
+    age: 5,
+    name: 'Sampson',
+    city: 'Austin',
+  });
 
 
-
-// cars.prototype.year = function(){
-//     return `${this.newMake} is a ${this.newModel} and was built in ${this.newYear}`;
-//  }
- 
-
-//  const carOne = new cars({
-//     make: 'Honda',
-//     model: 'Accord',
-//     year: '1999',
-    
-//   });
-//  console.log(carOne.year())
+  Child.prototype.checkIfChild = function() {
+    if(this.isChild) {
+      console.log(`My dogs name is ${this.name}`);
+    }
+  };
